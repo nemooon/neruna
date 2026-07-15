@@ -66,7 +66,8 @@ Command Line Tools のみの環境では `.icns` を `scripts/bundle.sh` がバ�
 ## リリース
 
 1. `scripts/bundle.sh` の `VERSION` を上げてコミット・push
-2. `./scripts/release.sh` — ビルド → zip → GitHub リリースを作成
+2. `./scripts/release.sh <リリースノートのファイル>` — ビルド → zip → GitHub リリースを作成
+   (ファイルを省略すると `gh` がエディタを開きます)
 3. リリース公開をトリガーに `.github/workflows/bump-cask.yml` が動き、
    [nemooon/homebrew-tap](https://github.com/nemooon/homebrew-tap) の
    `Casks/neruna.rb` の version と sha256 を自動更新します
