@@ -7,14 +7,18 @@ Macのスリープ（ディスプレイ＋システムアイドル）を防止�
 
 ```sh
 brew install --cask nemooon/tap/neruna
-```
-
-未署名アプリのため、初回起動時に Gatekeeper の警告が出る場合は
-右クリック →「開く」で起動するか、quarantine 属性を外してください:
-
-```sh
 xattr -dr com.apple.quarantine /Applications/Neruna.app
 ```
+
+Apple Developer ID 署名なしのため、macOS が quarantine 属性を付けて起動を
+ブロックします。上の `xattr` で属性を外してから起動してください。
+または、一度起動を試したあと「システム設定 → プライバシーとセキュリティ」の
+セキュリティ欄で「このまま開く」を選びます。
+
+> macOS 15 (Sequoia) 以降、右クリック →「開く」による回避は
+> [Apple が削除](https://www.idownloadblog.com/2024/08/07/apple-macos-sequoia-gatekeeper-change-install-unsigned-apps-mac/)しました。
+> `brew install --cask --no-quarantine` も Homebrew 6.x で廃止されているため、
+> 現状 `xattr` が唯一のコマンドラインでの手段です。
 
 macOS 13 (Ventura) 以降が必要です。
 
