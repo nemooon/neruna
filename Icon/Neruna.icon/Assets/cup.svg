@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- 取っ手（右半分がカップ本体の下に隠れる） -->
+  <circle cx="688" cy="566" r="74" fill="none" stroke="#FFF6E8" stroke-width="46"/>
+  <!-- カップ本体 -->
+  <path d="M326 432 h364 v168 a114 114 0 0 1 -114 114 h-136 a114 114 0 0 1 -114 -114 z" fill="#FFF6E8"/>
+  <!-- ソーサー -->
+  <rect x="282" y="752" width="452" height="54" rx="27" fill="#FFF6E8"/>
+</svg>
