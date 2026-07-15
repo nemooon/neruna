@@ -1,6 +1,6 @@
 # Neruna
 
-macOS のメニューバーに常駐し、`caffeinate` で Mac のスリープを防止する小さなアプリ。名前は「寝るな」から。
+macOS のメニューバーに常駐し、`caffeinate` で Mac のスリープを防止する小さなアプリ。
 
 ![スクリーンショット](docs/screenshot.png)
 
@@ -36,11 +36,6 @@ Apple Developer ID 署名なしのため、macOS が quarantine 属性を付け�
 ブロックします。上の `xattr` で属性を外してから起動してください。
 または、一度起動を試したあと「システム設定 → プライバシーとセキュリティ」の
 セキュリティ欄で「このまま開く」を選びます。
-
-> macOS 15 (Sequoia) 以降、右クリック →「開く」による回避は
-> [Apple が削除](https://www.idownloadblog.com/2024/08/07/apple-macos-sequoia-gatekeeper-change-install-unsigned-apps-mac/)しました。
-> `brew install --cask --no-quarantine` も Homebrew 6.x で廃止されているため、
-> 現状 `xattr` が唯一のコマンドラインでの手段です。
 
 ## ソースから実行
 
