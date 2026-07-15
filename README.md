@@ -46,7 +46,7 @@ swift run
 ## .app としてビルド
 
 ```sh
-./make-app.sh
+./scripts/bundle.sh
 open dist   # "Neruna.app" をアプリケーションフォルダへ
 ```
 
@@ -54,19 +54,19 @@ open dist   # "Neruna.app" をアプリケーションフォルダへ
 
 ## アイコン
 
-- `Icon/Neruna.icon` — Icon Composer 用のデザイン原本(Liquid Glass 対応)。
-  `open Icon/Neruna.icon` で編集できます
-- `Icon/icon-flat.svg` — `.icns` 生成用の合成版
-- `./make-icns.sh` — `Icon/Neruna.icns` を再生成。Icon Composer で調整した場合は
-  1024x1024 の PNG に書き出して `./make-icns.sh <書き出したPNG>` で反映
+- `Resources/Neruna.icon` — Icon Composer 用のデザイン原本(Liquid Glass 対応)。
+  `open Resources/Neruna.icon` で編集できます
+- `Resources/icon-flat.svg` — `.icns` 生成用の合成版
+- `./scripts/icon-to-icns.sh` — `Resources/Neruna.icns` を再生成。Icon Composer で調整した場合は
+  1024x1024 の PNG に書き出して `./scripts/icon-to-icns.sh <書き出したPNG>` で反映
 
 `.icon` を直接アプリに組み込むにはフル Xcode(actool)が必要なため、
-Command Line Tools のみの環境では `.icns` を `make-app.sh` がバンドルに同梱します。
+Command Line Tools のみの環境では `.icns` を `scripts/bundle.sh` がバンドルに同梱します。
 
 ## リリース
 
-1. `make-app.sh` の `VERSION` を上げてコミット・push
-2. `./make-release.sh` — ビルド → zip → GitHub リリースを作成
+1. `scripts/bundle.sh` の `VERSION` を上げてコミット・push
+2. `./scripts/release.sh` — ビルド → zip → GitHub リリースを作成
 3. リリース公開をトリガーに `.github/workflows/bump-cask.yml` が動き、
    [nemooon/homebrew-tap](https://github.com/nemooon/homebrew-tap) の
    `Casks/neruna.rb` の version と sha256 を自動更新します
