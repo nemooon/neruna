@@ -3,6 +3,21 @@
 macOSのメニューバーに常駐する `caffeinate` のラッパーアプリ。
 Macのスリープ（ディスプレイ＋システムアイドル）を防止します。
 
+## インストール
+
+```sh
+brew install --cask nemooon/tap/neruna
+```
+
+未署名アプリのため、初回起動時に Gatekeeper の警告が出る場合は
+右クリック →「開く」で起動するか、quarantine 属性を外してください:
+
+```sh
+xattr -dr com.apple.quarantine /Applications/Neruna.app
+```
+
+macOS 13 (Ventura) 以降が必要です。
+
 ## 使い方
 
 メニューバーのカップアイコン ☕ をクリックしてメニューから選択:
@@ -41,6 +56,17 @@ cp -R dist/Neruna.app /Applications/
 
 `.icon` を直接アプリに組み込むにはフル Xcode（actool）が必要なため、
 CLTのみの環境では `.icns` を `make-app.sh` がバンドルに同梱します。
+
+## リリース
+
+1. `make-app.sh` の `VERSION` を上げてコミット・push
+2. `./make-release.sh` — ビルド → zip → GitHub リリースを作成
+3. リリース公開をトリガーに `.github/workflows/bump-cask.yml` が動き、
+   [nemooon/homebrew-tap](https://github.com/nemooon/homebrew-tap) の
+   `Casks/neruna.rb` の version と sha256 を自動更新します
+
+ワークフローには tap へ push できる PAT を `TAP_GITHUB_TOKEN` として
+リポジトリシークレットに登録しておく必要があります。
 
 ## 仕組み
 
